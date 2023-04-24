@@ -29,18 +29,30 @@ public class Caesar {
     }
 
 
-    public String encrypt (String input, int key){
+    public String encryptDecrypt (String input, int key){
         if(input ==null || input.length()==0){
             return "Error: Please provide a valid input to proceed encrypting the String";
         }
+        int size =input.length();
+        StringBuilder result = new StringBuilder();
+        for(int i=0; i<size; i++){
+            char current = input.charAt(i);
 
-    }
+            if(Character.isLetter(current)) {
+                //a is 97
+                int value = (int) current - 97;
+                value += key;
+                //ensure
+                if (value > 25) {
+                    value -= 25;
+                }
+                value += 97;
+                current = (char) value;
+            }
 
-
-    public String decrypt (String input, int key){
-        if(input ==null || input.length()==0){
-            return "Error: Please provide a valid input to proceed decrypting the String";
+            result.append(current);
         }
-
+     return result.toString();
     }
+
 }
