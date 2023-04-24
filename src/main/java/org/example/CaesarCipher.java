@@ -14,6 +14,14 @@ public class CaesarCipher {
         this.key =key;
     }
 
+    public CaesarCipher(String name) {
+        this.name = name;
+    }
+
+    public CaesarCipher(int key) {
+        this.key = key;
+    }
+
     public String getName(){
         return this.name;
     }
