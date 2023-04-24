@@ -1,6 +1,7 @@
 package org.example;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +12,8 @@ class CaesarCipherTest {
 
     private static CaesarCipher caesarCipher ;
 
-    @BeforeAll
-    static void eachSetUp(){
+    @BeforeEach
+    void eachSetUp(){
     caesarCipher  = new CaesarCipher("HI",5);
     }
 
@@ -30,29 +31,27 @@ class CaesarCipherTest {
 
     @Test
     void setName() {
+
+        caesarCipher.setName("VR");
+        assertEquals("VR",caesarCipher.getName());
+
+
     }
 
     @Test
     void setKey() {
+        caesarCipher=new CaesarCipher();
+        caesarCipher.setKey(5);
+        assertEquals(5,caesarCipher.getKey());
 
     }
     @Test
-    @DisplayName(value = "Check decryption and encryption")
-    void encryptDecrypt(String input,int key) {
-       // assertTrue();
-        // assertFalse();
-        input="HI";
-        key =2;
-//        assertEquals("JK",encryptDecrypt(input,key));
-        //return "JK";
+    @DisplayName(value = "Check encryption and decryption is correct")
+    void encryptDecrypt() {
+      assertEquals("JK",caesarCipher.encryptDecrypt("HI",2));
+      assertEquals("CD",caesarCipher.encryptDecrypt("HI",20));
     }
 
-
-    @Test
-    @DisplayName(value = "Confirm encryption and decryption works well")
-    void confirmEncryptDecrypt() {
-
-    }
 
 
 }
