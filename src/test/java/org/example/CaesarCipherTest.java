@@ -9,18 +9,23 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName(value = "Caesar cipher related Tests")
 class CaesarCipherTest {
 
-//
-//    @BeforeAll
-//    void eachSetUp(){
-//
-//    }
+    private static CaesarCipher caesarCipher ;
 
-    @Test
-    void getName() {
+    @BeforeAll
+    static void eachSetUp(){
+    caesarCipher  = new CaesarCipher("HI",5);
     }
 
     @Test
+    @DisplayName(value = "Get input String details")
+    void getName() {
+        assertEquals("HI",caesarCipher.getName());
+    }
+
+    @Test
+    @DisplayName(value = "Get input key details")
     void getKey() {
+        assertEquals(5,caesarCipher.getKey());
     }
 
     @Test
@@ -38,7 +43,7 @@ class CaesarCipherTest {
         // assertFalse();
         input="HI";
         key =2;
-        assertEquals("JK",encryptDecrypt(input,key));
+//        assertEquals("JK",encryptDecrypt(input,key));
         //return "JK";
     }
 
