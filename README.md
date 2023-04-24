@@ -6,10 +6,8 @@ CAESAR_CIPHER
 ## Author name
 **Phelister Bogonko**
 
-
-
 ## Description of project
-<p>This project aims to build a web application that takes a user's birthday and calculates the day of the week they were born and then depending on their gender outputs their Akan Name. </p>
+<p>This project aims to build Caesar cipher project, both encoding, and decoding. The key is an integer from 1 to 25. This cipher rotates the letters of the alphabet (A to Z). The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A). So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".  </p>
 
 
 ## Technologies
