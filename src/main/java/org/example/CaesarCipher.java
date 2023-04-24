@@ -1,15 +1,15 @@
 package org.example;
 
-public class Caesar {
+public class CaesarCipher {
     private String name;
     private int key;
 
-    public Caesar(){
+    public CaesarCipher(){
         this.name=null;
         this.key =0;
     }
 
-    public Caesar(String name,int key){
+    public CaesarCipher(String name, int key){
         this.name=name;
         this.key =key;
     }
@@ -38,16 +38,30 @@ public class Caesar {
         for(int i=0; i<size; i++){
             char current = input.charAt(i);
 
+
             if(Character.isLetter(current)) {
                 //a is 97
+                boolean smallLetter= true;
+                if(Character.isUpperCase(current)){
+                    smallLetter=false;
+                    current=Character.toLowerCase(current);
+                }
+
                 int value = (int) current - 97;
+
                 value += key;
+
                 //ensure
                 if (value > 25) {
-                    value -= 25;
+                    value %= 25;
                 }
                 value += 97;
+
                 current = (char) value;
+
+                if(!smallLetter){
+                    current=Character.toUpperCase(current);
+                }
             }
 
             result.append(current);

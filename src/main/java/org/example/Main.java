@@ -12,8 +12,7 @@ public class Main {
         Scanner inputValue = new Scanner(System.in);
         String input =inputValue.nextLine();
 
-        Caesar caesar= new Caesar(input,key);
-
+        CaesarCipher caesar= new CaesarCipher(input,key);
         System.out.println("The new String value is "+ caesar.encryptDecrypt(caesar.getName(), caesar.getKey()));
     }
 }
