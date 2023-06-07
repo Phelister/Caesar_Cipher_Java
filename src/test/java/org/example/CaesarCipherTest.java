@@ -1,12 +1,10 @@
 package org.example;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//RED GREEN REFACTOR
 @DisplayName(value = "Caesar cipher related Tests")
 class CaesarCipherTest {
 
@@ -14,7 +12,11 @@ class CaesarCipherTest {
 
     @BeforeEach
     void eachSetUp(){
-    caesarCipher  = new CaesarCipher("HI",5);
+
+        caesarCipher  = new CaesarCipher();
+        caesarCipher.setKey(5);
+        caesarCipher.setProcess(1);
+        caesarCipher.setName("HI");
     }
 
     @Test
@@ -46,11 +48,19 @@ class CaesarCipherTest {
 
     }
     @Test
-    @DisplayName(value = "Check encryption and decryption is correct")
-    void encryptDecrypt() {
-      assertEquals("JK",caesarCipher.encryptDecrypt("HI",2));
-      assertEquals("CD",caesarCipher.encryptDecrypt("HI",20));
+    @DisplayName(value = "Check encoding is correct")
+    void encode() {
+      assertEquals("JK",caesarCipher.encode("HI",2));
+      assertEquals("CD",caesarCipher.encode("HI",20));
     }
+
+    @Test
+    @DisplayName(value = "Check decoding is correct")
+    void decode() {
+        assertEquals("A",caesarCipher.decode("B",1));
+        assertEquals("A",caesarCipher.decode("C",2));
+    }
+
 
 
 
